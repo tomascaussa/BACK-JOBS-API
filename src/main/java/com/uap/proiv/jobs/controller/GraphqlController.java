@@ -49,4 +49,13 @@ public class GraphqlController {
         return jobService.add(request);
     }
 
+//Una query para buscar trabajos por id
+    @QueryMapping
+    public Job jobById(@Argument int id) {
+        return jobService.getJobById(id);
+    }
+
+
+
+
 }
