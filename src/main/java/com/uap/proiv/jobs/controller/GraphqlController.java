@@ -49,6 +49,16 @@ public class GraphqlController {
         return jobService.add(request);
     }
 
+    @MutationMapping
+    public User addUser(@Argument UserRequest request) {
+        User user = new User();
+        user.setId(99);
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setEmail(request.getEmail());
+        return user;
+    }
+
 //Una query para buscar trabajos por id
     @QueryMapping
     public Job jobById(@Argument int id) {
